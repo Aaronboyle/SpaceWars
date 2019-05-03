@@ -2,6 +2,3 @@
 HD project for SWE20001 Semester 1 2019
 
 Sample text 
-
-
-Yo, henry here
