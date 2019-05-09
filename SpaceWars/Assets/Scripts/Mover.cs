@@ -8,6 +8,6 @@ public class Mover : MonoBehaviour
     void Start()
     {
         //-negative velocty as the object was moving downwards
-        GetComponent<Rigidbody>().velocity = - transform.right * speed;
+        GetComponent<Rigidbody>().velocity =  transform.forward * speed;
     }
 }
