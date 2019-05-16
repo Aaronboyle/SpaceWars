@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour
     public float spawnWait;
     public float startWait;
     public float waveWait;
+    public int waveNumber;
 
     public Text scoreText;
     public Text restartText;
@@ -36,9 +37,9 @@ public class GameController : MonoBehaviour
         playerObject = GameObject.FindWithTag("Player");
         player = playerObject.GetComponent<PlayerController>();
 
-        
-        score = 0;
+        hazardCount = 10;
 
+        score = 0;
         UpdateScore();
 
         StartCoroutine(SpawnWaves());
@@ -76,6 +77,9 @@ public class GameController : MonoBehaviour
                 Instantiate(hazard, spawnPosition, spawnRotation);
                 yield return new WaitForSeconds(spawnWait);
             }
+
+            hazardCount = (int)(hazardCount * 1.5);
+
             yield return new WaitForSeconds(waveWait);
 
             if (gameOver)
