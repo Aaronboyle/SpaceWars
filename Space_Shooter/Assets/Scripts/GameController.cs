@@ -20,6 +20,11 @@ public class GameController : MonoBehaviour
     private bool gameOver;
     private bool restart;
     private int score;
+    private GameObject playerObject;
+    private PlayerController player;
+    private float playerHealth;
+    public GameObject playerExplosion;
+    public Slider healthBar;
 
     void Start()
     {
@@ -27,8 +32,13 @@ public class GameController : MonoBehaviour
         restart = false;
         restartText.text = "";
         gameOverText.text = "";
+        
+        playerObject = GameObject.FindWithTag("Player");
+        player = playerObject.GetComponent<PlayerController>();
 
+        
         score = 0;
+
         UpdateScore();
 
         StartCoroutine(SpawnWaves());
@@ -50,7 +60,7 @@ public class GameController : MonoBehaviour
             Application.Quit();
         }
         */
-
+        healthBar.value = player.PlayerHealth;
     }
 
     IEnumerator SpawnWaves()
@@ -77,6 +87,15 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public void PlayerHit()
+    {
+        playerHealth = player.PlayerIsHit();
+        healthBar.value = playerHealth;
+
+        if (playerHealth <= 0)
+            GameOver();
+    }
+
     public void AddScore(int newScoreValue)
     {
         score += newScoreValue;
@@ -90,6 +109,8 @@ public class GameController : MonoBehaviour
 
     public void GameOver()
     {
+        Instantiate(playerExplosion, playerObject.transform.position, playerObject.transform.rotation);
+        Destroy(playerObject);
         gameOverText.text = "Game Over!";
         gameOver = true;
     }
