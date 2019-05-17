@@ -16,10 +16,14 @@ public class GameController : MonoBehaviour
     public Text scoreText;
     public Text restartText;
     public Text gameOverText;
+    public Text waveText;
+
 
     private bool gameOver;
     private bool restart;
     private int score;
+    private int wave;
+
     private GameObject playerObject;
     private PlayerController player;
     private float playerHealth;
@@ -32,14 +36,19 @@ public class GameController : MonoBehaviour
         restart = false;
         restartText.text = "";
         gameOverText.text = "";
+        waveText.text = "";
+
+
         
         playerObject = GameObject.FindWithTag("Player");
         player = playerObject.GetComponent<PlayerController>();
 
         
         score = 0;
+        wave = 1;
 
         UpdateScore();
+        UpdateWaveCount();
 
         StartCoroutine(SpawnWaves());
     }
@@ -77,12 +86,17 @@ public class GameController : MonoBehaviour
                 yield return new WaitForSeconds(spawnWait);
             }
             yield return new WaitForSeconds(waveWait);
-
-            if (gameOver)
+           
+          if (gameOver)
             {
                 restartText.text = "Press 'R' for Restart";
                 restart = true;
                 break;
+            }
+            else
+            {
+                 wave++;
+                 UpdateWaveCount();
             }
         }
     }
@@ -101,7 +115,10 @@ public class GameController : MonoBehaviour
         score += newScoreValue;
         UpdateScore();
     }
-
+    void UpdateWaveCount()
+    {
+        waveText.text = "Wave: " + wave;
+    }
     void UpdateScore()
     {
         scoreText.text = "Score: " + score;
