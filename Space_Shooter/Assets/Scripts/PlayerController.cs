@@ -13,12 +13,26 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public float tilt;
     public Boundary boundary;
+    public float playerHealth;
+    public bool playerIsDead;
+
+    public float PlayerHealth
+    {
+        get => playerHealth;
+        set => playerHealth = value;
+    }
 
     public GameObject shot;
     public Transform shotSpawn;
     public float fireRate;
 
     private float nextFire;
+
+    void Start()
+    {
+        playerHealth = 100.0f;
+        playerIsDead = false;
+    }
 
     void Update()
     {
@@ -28,6 +42,16 @@ public class PlayerController : MonoBehaviour
             Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
             GetComponent<AudioSource>().Play();
         }
+
+        if (playerHealth < 0)
+            playerIsDead = true;
+    }
+
+
+    public float PlayerIsHit()
+    {
+        playerHealth -= 20;
+        return playerHealth;
     }
 
     void FixedUpdate()
