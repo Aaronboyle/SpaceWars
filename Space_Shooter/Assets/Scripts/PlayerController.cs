@@ -13,8 +13,8 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public float tilt;
     public Boundary boundary;
-    public float playerHealth;
-    public bool playerIsDead;
+    private float playerHealth;
+    private bool playerIsDead;
 
     public float PlayerHealth
     {
@@ -67,6 +67,6 @@ public class PlayerController : MonoBehaviour
             0.0f, 
             Mathf.Clamp(GetComponent<Rigidbody>().position.z, boundary.zMin, boundary.zMax));
 
-        GetComponent<Rigidbody>().rotation = Quaternion.Euler(0.0f, 0.0f, GetComponent<Rigidbody>().velocity.x * -tilt);
+        //GetComponent<Rigidbody>().rotation = Quaternion.Euler(0.0f, 0.0f, GetComponent<Rigidbody>().velocity.x * -tilt);
     }
 }
