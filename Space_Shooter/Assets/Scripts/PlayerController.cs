@@ -13,8 +13,8 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public float tilt;
     public Boundary boundary;
-    public float playerHealth;
-    public bool playerIsDead;
+    private float playerHealth;
+    private bool playerIsDead;
 
     public float PlayerHealth
     {
