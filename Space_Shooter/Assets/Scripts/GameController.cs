@@ -62,13 +62,7 @@ public class GameController : MonoBehaviour
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }
-
-        /*
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
-        */
+        
         healthBar.value = player.PlayerHealth;
     }
 
@@ -85,6 +79,10 @@ public class GameController : MonoBehaviour
                 Instantiate(hazard, spawnPosition, spawnRotation);
                 yield return new WaitForSeconds(spawnWait);
             }
+
+            hazardCount = (int)(hazardCount * 1.5);
+
+   
             yield return new WaitForSeconds(waveWait);
            
           if (gameOver)

@@ -11,6 +11,12 @@ public class WeaponController : MonoBehaviour
     public float fireRate;
     public float delay;
 
+    public void test_Construct
+        (GameObject _shot, Transform _shotSpawn)
+    {
+
+    }
+
     // Start is called before the first frame update
     void Start()
     {
