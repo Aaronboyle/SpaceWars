@@ -79,6 +79,10 @@ public class GameController : MonoBehaviour
                 Instantiate(hazard, spawnPosition, spawnRotation);
                 yield return new WaitForSeconds(spawnWait);
             }
+
+            hazardCount = (int)(hazardCount * 1.5);
+
+   
             yield return new WaitForSeconds(waveWait);
            
           if (gameOver)
