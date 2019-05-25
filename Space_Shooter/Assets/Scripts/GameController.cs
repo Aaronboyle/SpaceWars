@@ -29,6 +29,7 @@ public class GameController : MonoBehaviour
     private float playerHealth;
     public GameObject playerExplosion;
     public Slider healthBar;
+    public GameObject GameOverMenu;
 
     void Start()
     {
@@ -127,6 +128,7 @@ public class GameController : MonoBehaviour
         Instantiate(playerExplosion, playerObject.transform.position, playerObject.transform.rotation);
         Destroy(playerObject);
         gameOverText.text = "Game Over!";
+        GameOverMenu.SetActive(true);
         gameOver = true;
     }
 }
