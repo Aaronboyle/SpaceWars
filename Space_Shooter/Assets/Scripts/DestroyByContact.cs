@@ -38,7 +38,21 @@ public class DestroyByContact : MonoBehaviour
             if (!other.CompareTag("Player") && !other.CompareTag("EnemyBoss"))
                 Destroy(other.gameObject);
         }
-            
+
+        float bossHealth;
+        if (this.CompareTag("EnemyBoss"))
+        {
+            bossHealth = gameController.BossHit();
+            Debug.Log(bossHealth);
+            if (bossHealth < 0.0f)
+            {
+                Destroy(gameObject);
+                gameController.ResetBoss();
+                gameController.AddScore(scoreValue);
+            }
+            return;
+        }
+
         if (other.CompareTag("Player"))
         {
             gameController.PlayerHit();
@@ -46,11 +60,6 @@ public class DestroyByContact : MonoBehaviour
         else
             gameController.AddScore(scoreValue);
 
-        if (other.CompareTag("EnemyBoss"))
-        {
-            gameController.BossHit();
-        }
-        
         Destroy(gameObject);
     }
 }

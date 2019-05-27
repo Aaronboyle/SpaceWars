@@ -133,13 +133,19 @@ public class GameController : MonoBehaviour
         scoreText.text = "Score: " + score;
     }
 
+    public void ResetBoss()
+    {
+        enemyBoss.Reset();
+    }
 
-    public void BossHit()
+    public float BossHit()
     {
         bossHealth = enemyBoss.TakeDamage();
 
-        if (bossHealth <= 0)
+        if (bossHealth <= 0.0f)
             enemyBoss.Explode();
+
+        return bossHealth;
     }
 
     public void GameOver()

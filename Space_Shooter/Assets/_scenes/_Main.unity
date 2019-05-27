@@ -1076,8 +1076,9 @@ MonoBehaviour:
   - {fileID: 980641536481991766, guid: fe799365822a2ca44b56b0d135103e74, type: 3}
   - {fileID: 5572264191208868816, guid: fa14d241445a13d45b322f6251ff8836, type: 3}
   - {fileID: 3637771070349383292, guid: 4dae92cc8c685df449c8aa03f63ba7c8, type: 3}
+  boss1: {fileID: 6081594703981739412, guid: f3a40b2cd6391e744b7906737d39dd6f, type: 3}
   spawnValues: {x: 12, y: 0, z: 16}
-  hazardCount: 40
+  hazardCount: 30
   spawnWait: 0.3
   startWait: 1
   waveWait: 4
@@ -1468,6 +1469,7 @@ MonoBehaviour:
   shot: {fileID: 307206465597138281, guid: b903b793c87821d4a9497e7d7d90819c, type: 3}
   shotSpawn: {fileID: 1452270739}
   fireRate: 0.2
+  playerShip: {fileID: 0}
 --- !u!82 &1543690017
 AudioSource:
   m_ObjectHideFlags: 0

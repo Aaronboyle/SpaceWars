@@ -8,25 +8,29 @@ public class EnemyBoss : MonoBehaviour
     public bool bossIsDead;
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
-        bossHealth = 100;
+        bossHealth = 100.0f;
         bossIsDead = false;
-
     }
 
     public float TakeDamage()
     {
-        if (bossHealth <= 0)
-            bossIsDead = true;
-
-        bossHealth -= 10;
-        return bossHealth;
+        
     }
+
+
+    public void Reset()
+    {
+        
+    }
+
+
+
 
     public void Explode()
     {
-        Destroy(gameObject);
+        
     }
 
     // Update is called once per frame
