@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
         playerIsDead = false;
     }
 
-    void Update()
+    public void Update()
     {
         if (Input.GetButton("Fire1") && Time.time > nextFire)
         {
@@ -44,15 +44,28 @@ public class PlayerController : MonoBehaviour
             Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
             GetComponent<AudioSource>().Play();
         }
-
-        if (playerHealth < 0)
-            playerIsDead = true;
     }
 
     public float PlayerIsHit()
     {
         playerHealth -= 20;
+
+        if (playerHealth <= 0)
+        {
+            playerIsDead = true;
+        }
+
         return playerHealth;
+    }
+
+    public float PlayerCurrentHealth()
+    {
+        return playerHealth;
+    }
+
+    public bool PlayerDeath()
+    {
+        return playerIsDead;
     }
 
     void FixedUpdate()

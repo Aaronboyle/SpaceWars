@@ -35,7 +35,7 @@ public class GameController : MonoBehaviour
 
     public Boundary boundary;
 
-    void Start()
+    public void Start()
     {
         gameOver = false;
         restart = false;
