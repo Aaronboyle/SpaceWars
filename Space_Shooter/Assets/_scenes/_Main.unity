@@ -1078,7 +1078,7 @@ MonoBehaviour:
   - {fileID: 3637771070349383292, guid: 4dae92cc8c685df449c8aa03f63ba7c8, type: 3}
   boss1: {fileID: 6081594703981739412, guid: f3a40b2cd6391e744b7906737d39dd6f, type: 3}
   spawnValues: {x: 12, y: 0, z: 16}
-  hazardCount: 40
+  hazardCount: 30
   spawnWait: 0.3
   startWait: 1
   waveWait: 4

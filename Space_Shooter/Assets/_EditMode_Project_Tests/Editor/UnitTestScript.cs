@@ -7,23 +7,28 @@ using UnityEngine.TestTools;
 
 namespace Tests
 {
-    public class UnitTestScript
+    public class HealthTests
     {
-        // A Test behaves as an ordinary method
+        //Test to see that the player health decreases when the playerIsHit() method is called
         [Test]
-        public void UnitTestScriptSimplePasses()
+        public void PlayerHealthDecreasesTest()
         {
-            // Use the Assert class to test conditions
+            PlayerController playerController = new PlayerController();
+            playerController.Start();
+
+            Assert.AreEqual(80.0f, playerController.PlayerIsHit());
+            Assert.AreEqual(60.0f, playerController.PlayerIsHit());
+            Assert.AreEqual(40.0f, playerController.PlayerIsHit());
         }
 
-        // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
-        // `yield return null;` to skip a frame.
-        [UnityTest]
-        public IEnumerator UnitTestScriptWithEnumeratorPasses()
+        [Test]
+        public void BossHealthDecreasesTest()
         {
-            // Use the Assert class to test conditions.
-            // Use yield to skip a frame.
-            yield return null;
+            EnemyBoss enemyBoss = new EnemyBoss();
+            enemyBoss.Start();
+
+            Assert.AreEqual(90.0f, enemyBoss.TakeDamage());
         }
     }
 }
+
