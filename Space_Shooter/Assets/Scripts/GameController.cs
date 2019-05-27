@@ -18,7 +18,6 @@ public class GameController : MonoBehaviour
     public Text gameOverText;
     public Text waveText;
 
-
     private bool gameOver;
     private bool restart;
     private int score;
