@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     public float tilt;
     public Boundary boundary;
     private float playerHealth;
-    private bool playerIsDead;
+    //private bool playerIsDead;
 
     public float PlayerHealth
     {
@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         playerHealth = 100.0f;
-        playerIsDead = false;
+        //playerIsDead = false;
     }
 
     void Update()
@@ -45,8 +45,8 @@ public class PlayerController : MonoBehaviour
             GetComponent<AudioSource>().Play();
         }
 
-        if (playerHealth < 0)
-            playerIsDead = true;
+        //if (playerHealth < 0)
+            //playerIsDead = true;
     }
 
     public float PlayerIsHit()
