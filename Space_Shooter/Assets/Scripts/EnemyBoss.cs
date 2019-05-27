@@ -11,8 +11,15 @@ public class EnemyBoss : MonoBehaviour
     public void Start()
     {
         bossHealth = 100.0f;
-        bossIsDead = false;
+        bossIsDead = true;
     }
+
+    public bool IsDead
+    {
+        get => bossIsDead;
+    }
+
+
 
     public float TakeDamage()
     {
