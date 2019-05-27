@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
 
     private float nextFire;
 
-    void Start()
+    public void Start()
     {
         playerHealth = 100.0f;
         //playerIsDead = false;
