@@ -46,9 +46,15 @@ public class PauseMenu : MonoBehaviour
         {
             Application.Quit();
         }
-        if (Input.GetKeyDown(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.M) && GameIsPaused)
         {
+            Resume();
             SceneManager.LoadScene(0);
+        }
+        if (Input.GetKeyDown(KeyCode.R) && GameIsPaused)
+        {
+            Resume();
+            SceneManager.LoadScene(1);
         }
     }
 }
