@@ -33660,7 +33660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0273b03e0f21b424aa2ea62dbed55942, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossHealth: 0
+  bossHealth: 300
   bossIsDead: 0
 --- !u!1 &6081594703981741066
 GameObject:
