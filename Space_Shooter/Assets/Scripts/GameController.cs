@@ -86,11 +86,17 @@ public class GameController : MonoBehaviour
 
             if( wave % 2 == 0)
             {
-                Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
-                Quaternion spawnRotation = Quaternion.identity;
-                Instantiate(boss1, spawnPosition, spawnRotation);
-                yield return new WaitForSeconds(10);
+                int numberOfBosses = wave / 2;
+                for(int i = 0; i < numberOfBosses; i++)
+                {
+                    Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
+                    Quaternion spawnRotation = Quaternion.identity;
+                    Instantiate(boss1, spawnPosition, spawnRotation);
+                }
+                yield return new WaitForSeconds(5);
             }
+
+
 
             hazardCount = (int)(hazardCount * 1.5);
 
