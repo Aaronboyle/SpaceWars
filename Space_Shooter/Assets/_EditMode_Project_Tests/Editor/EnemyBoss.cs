@@ -17,16 +17,27 @@ public class EnemyBoss : MonoBehaviour
 
     public float TakeDamage()
     {
+        bossHealth -= 10;
+
         if (bossHealth <= 0)
             bossIsDead = true;
 
-        bossHealth -= 10;
         return bossHealth;
+    }
+
+    public float Health()
+    {
+        return bossHealth;
+    }
+
+    public bool Death()
+    {
+        return bossIsDead;
     }
 
     public void Explode()
     {
-        Destroy(gameObject);
+        
     }
 
     // Update is called once per frame
