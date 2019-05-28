@@ -7,7 +7,6 @@ TagManager:
   - Boundary
   - Enemy
   - Shot
-  - GameOverMenu
   layers:
   - Default
   - TransparentFX
