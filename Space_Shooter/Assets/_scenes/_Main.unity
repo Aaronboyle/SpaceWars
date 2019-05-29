@@ -1752,7 +1752,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -86.51, y: -80.1}
+  m_AnchoredPosition: {x: -86.54, y: -87.47}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1274499695
@@ -1844,7 +1844,6 @@ MonoBehaviour:
   waveText: {fileID: 67216688}
   playerExplosion: {fileID: 100008, guid: a93496017806b7740910df5fd946f306, type: 3}
   healthBar: {fileID: 454216189}
-  GameOverMenu: {fileID: 1501192902}
   boundary:
     xMin: -6
     xMax: 6

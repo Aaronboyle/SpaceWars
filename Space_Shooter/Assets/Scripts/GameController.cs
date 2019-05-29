@@ -32,7 +32,6 @@ public class GameController : MonoBehaviour
     private float playerHealth;
     public GameObject playerExplosion;
     public Slider healthBar;
-    public GameObject GameOverMenu;
 
     public Boundary boundary;
 
@@ -68,7 +67,6 @@ public class GameController : MonoBehaviour
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }
-        
         healthBar.value = player.PlayerHealth;
     }
 
@@ -88,10 +86,17 @@ public class GameController : MonoBehaviour
 
             if( wave % 2 == 0)
             {
-                Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
-                Quaternion spawnRotation = Quaternion.identity;
-                Instantiate(boss1, spawnPosition, spawnRotation);
+                int numberOfBosses = wave / 2;
+                for(int i = 0; i < numberOfBosses; i++)
+                {
+                    Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
+                    Quaternion spawnRotation = Quaternion.identity;
+                    Instantiate(boss1, spawnPosition, spawnRotation);
+                }
+                yield return new WaitForSeconds(5);
             }
+
+
 
             hazardCount = (int)(hazardCount * 1.5);
 
@@ -154,7 +159,6 @@ public class GameController : MonoBehaviour
         Instantiate(playerExplosion, playerObject.transform.position, playerObject.transform.rotation);
         Destroy(playerObject);
         gameOverText.text = "Game Over!";
-        GameOverMenu.SetActive(true);
         gameOver = true;
     }
 }
