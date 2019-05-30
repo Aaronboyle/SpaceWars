@@ -22,13 +22,13 @@ namespace Tests
                 playerController.PlayerIsHit();
             }
 
-            float result = playerController.PlayerCurrentHealth();
+            float result = playerController.PlayerHealth;
 
             Assert.AreEqual(expected, result);
         }
 
-
-        [Test]
+    //PlayerIsDead is omitted on PlayerController, thus this test is disregarded unless re-implemented
+    /*     [Test]
         public void PlayerDied()
         {
             PlayerController playerController = new PlayerController();
@@ -41,11 +41,11 @@ namespace Tests
                 playerController.PlayerIsHit();
             }
 
-            bool result = playerController.PlayerDeath();
+            bool result = playerController.PlayerIsDead;
 
             Assert.AreEqual(expected, result);
         }
-
+    */
         [Test]
         public void BossHealthIsZero()
         {
@@ -59,7 +59,7 @@ namespace Tests
                 boss.TakeDamage();
             }
 
-            float result = boss.Health();
+            float result = boss.bossHealth;
 
             Assert.AreEqual(expected, result);
         }
@@ -77,7 +77,7 @@ namespace Tests
                 boss.TakeDamage();
             }
 
-            bool result = boss.Death();
+            bool result = boss.IsDead;
 
             Assert.AreEqual(expected, result);
         }
