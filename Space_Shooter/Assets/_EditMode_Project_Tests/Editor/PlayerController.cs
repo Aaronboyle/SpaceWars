@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
             //playerIsDead = true;
     }
 
-    public float PlayerIsHit()
+    public float TakeDamage()
     {
         playerHealth -= 20;
         return playerHealth;

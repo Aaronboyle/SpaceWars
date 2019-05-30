@@ -32,7 +32,7 @@ public class GameController : MonoBehaviour
     private float playerHealth;
     public GameObject playerExplosion;
     public Slider healthBar;
-
+    public GameObject GameOverMenu;
     public Boundary boundary;
 
     void Start()
@@ -62,7 +62,7 @@ public class GameController : MonoBehaviour
     {
         if (restart)
         {
-            if(Input.GetKeyDown(KeyCode.R))
+            if (Input.GetKeyDown(KeyCode.R))
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
@@ -84,10 +84,10 @@ public class GameController : MonoBehaviour
                 yield return new WaitForSeconds(spawnWait);
             }
 
-            if( wave % 2 == 0)
+            if (wave % 2 == 0)
             {
                 int numberOfBosses = wave / 2;
-                for(int i = 0; i < numberOfBosses; i++)
+                for (int i = 0; i < numberOfBosses; i++)
                 {
                     Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
                     Quaternion spawnRotation = Quaternion.identity;
@@ -101,8 +101,8 @@ public class GameController : MonoBehaviour
             hazardCount = (int)(hazardCount * 1.5);
 
             yield return new WaitForSeconds(waveWait);
-           
-          if (gameOver)
+
+            if (gameOver)
             {
                 restartText.text = "Press 'R' for Restart";
                 restart = true;
@@ -161,6 +161,7 @@ public class GameController : MonoBehaviour
         Instantiate(playerExplosion, playerObject.transform.position, playerObject.transform.rotation);
         Destroy(playerObject);
         gameOverText.text = "Game Over!";
+        GameOverMenu.SetActive(true);
         gameOver = true;
     }
 }

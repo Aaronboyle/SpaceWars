@@ -25,7 +25,7 @@ public class GameController : MonoBehaviour
     private bool gameOver;
     private bool restart;
     private int score;
-    private int wave;
+    public int wave;
 
     private GameObject playerObject;
     private PlayerController player;
@@ -70,7 +70,7 @@ public class GameController : MonoBehaviour
         healthBar.value = player.PlayerHealth;
     }
 
-    IEnumerator SpawnWaves()
+    public IEnumerator SpawnWaves()
     {
         yield return new WaitForSeconds(startWait);
         while (true)
@@ -120,7 +120,7 @@ public class GameController : MonoBehaviour
 
     public void PlayerHit()
     {
-        playerHealth = player.PlayerIsHit();
+        playerHealth = player.TakeDamage();
         healthBar.value = playerHealth;
 
         if (playerHealth <= 0)

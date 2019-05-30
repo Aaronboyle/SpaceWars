@@ -9,8 +9,9 @@ namespace Tests
 {
     public class _UnitTestPlayerAndBossDeaths
     {
+        //Test to see that the player health drops to 0 after 5 hits
         [Test]
-        public void PlayerHealthIsZero()
+        public void TestPlayerHealthIsZeroAfterFiveHits()
         {
             PlayerController playerController = new PlayerController();
             playerController.Start();
@@ -19,7 +20,7 @@ namespace Tests
 
             for (int i = 0; i <= 4; i++)
             {
-                playerController.PlayerIsHit();
+                playerController.TakeDamage();
             }
 
             float result = playerController.PlayerHealth;
@@ -27,9 +28,10 @@ namespace Tests
             Assert.AreEqual(expected, result);
         }
 
-    //PlayerIsDead is omitted on PlayerController, thus this test is disregarded unless re-implemented
-    /*     [Test]
-        public void PlayerDied()
+
+        //Test to see that the player dies after 5 hits
+        [Test]
+        public void TestPlayerDiedOnFiveHits()
         {
             PlayerController playerController = new PlayerController();
             playerController.Start();
@@ -38,16 +40,17 @@ namespace Tests
 
             for (int i = 0; i <= 4; i++)
             {
-                playerController.PlayerIsHit();
+                playerController.TakeDamage();
             }
 
             bool result = playerController.PlayerIsDead;
 
             Assert.AreEqual(expected, result);
         }
-    */
+
+        //Test to see that the boss health drops to zero after 5 hits
         [Test]
-        public void BossHealthIsZero()
+        public void TestBossHealthIsZeroAfterTenHits()
         {
             EnemyBoss boss = new EnemyBoss();
             boss.Start();
@@ -64,8 +67,9 @@ namespace Tests
             Assert.AreEqual(expected, result);
         }
 
+        //Test to see that the boss dies after 10 hits
         [Test]
-        public void BossDied()
+        public void TestBossDiedOnTenHits()
         {
             EnemyBoss boss = new EnemyBoss();
             boss.Start();
