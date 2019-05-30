@@ -10,18 +10,18 @@ namespace Tests
 	public class _UnitTest_Regen
     {
 	
-		//Test to see if player can regenerate health
+		//Test to see if player gains 10 health after being hit by 20 damage
 		[Test]
         public void PlayerRegenTest() 
 		{
         PlayerController player = new PlayerController();
 		
 		player.Start();
-		player.PlayerIsHit(); //Player takes 20 damage
-	//	player.PlayerRegenHealth(); //Regen 10 health
-	//	float health = player.PlayerCurrentHealth(); //Obtain health
+		player.TakeDamage(); //Player takes 20 damage
+		player.PlayerRegenHealth(); //Regen 10 health
+		float health = player.PlayerHealth; //Obtain health
 
-	//	Assert.AreEqual(90.0f, health);
+		Assert.AreEqual(90.0f, health);
         }
 	
     }
