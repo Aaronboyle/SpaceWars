@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public float PlayerIsHit()
+    public float TakeDamage()
     {
         playerHealth -= 20;
 

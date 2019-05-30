@@ -15,9 +15,9 @@ namespace Tests
             PlayerController playerController = new PlayerController();
             playerController.Start();
 
-            Assert.AreEqual(80.0f, playerController.PlayerIsHit());
-            Assert.AreEqual(60.0f, playerController.PlayerIsHit());
-            Assert.AreEqual(40.0f, playerController.PlayerIsHit());
+            Assert.AreEqual(80.0f, playerController.TakeDamage());
+            Assert.AreEqual(60.0f, playerController.TakeDamage());
+            Assert.AreEqual(40.0f, playerController.TakeDamage());
         }
 
         [Test]
