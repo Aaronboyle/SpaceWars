@@ -110,8 +110,10 @@ public class GameController : MonoBehaviour
             }
             else
             {
-                wave++;
-                UpdateWaveCount();
+                 wave++;
+                 UpdateWaveCount();
+                 if(player.PlayerHealth <= 90.0f)
+                    player.PlayerRegenHealth();
             }
         }
     }

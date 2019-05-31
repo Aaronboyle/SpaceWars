@@ -35,7 +35,7 @@ public class GameController : MonoBehaviour
 
     public Boundary boundary;
 
-    public void Start()
+    void Start()
     {
         gameOver = false;
         restart = false;
@@ -67,7 +67,6 @@ public class GameController : MonoBehaviour
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }
-        
         healthBar.value = player.PlayerHealth;
     }
 
@@ -87,10 +86,17 @@ public class GameController : MonoBehaviour
 
             if( wave % 2 == 0)
             {
-                Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
-                Quaternion spawnRotation = Quaternion.identity;
-                Instantiate(boss1, spawnPosition, spawnRotation);
+                int numberOfBosses = wave / 2;
+                for(int i = 0; i < numberOfBosses; i++)
+                {
+                    Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
+                    Quaternion spawnRotation = Quaternion.identity;
+                    Instantiate(boss1, spawnPosition, spawnRotation);
+                }
+                yield return new WaitForSeconds(5);
             }
+
+
 
             hazardCount = (int)(hazardCount * 1.5);
 
@@ -106,6 +112,8 @@ public class GameController : MonoBehaviour
             {
                  wave++;
                  UpdateWaveCount();
+                 if(player.PlayerHealth <= 90.0f)
+                    player.PlayerRegenHealth();
             }
         }
     }
@@ -133,13 +141,19 @@ public class GameController : MonoBehaviour
         scoreText.text = "Score: " + score;
     }
 
+    public void ResetBoss()
+    {
+        enemyBoss.Reset();
+    }
 
-    public void BossHit()
+    public float BossHit()
     {
         bossHealth = enemyBoss.TakeDamage();
 
-        if (bossHealth <= 0)
+        if (bossHealth <= 0.0f)
             enemyBoss.Explode();
+
+        return bossHealth;
     }
 
     public void GameOver()
