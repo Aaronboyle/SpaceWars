@@ -55,6 +55,12 @@ public class PlayerController : MonoBehaviour
         return playerHealth;
     }
 
+    public float PlayerRegenHealth() //Add health back to player
+    {
+        playerHealth += 10;
+        return playerHealth;
+    }
+
     void FixedUpdate()
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
