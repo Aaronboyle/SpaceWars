@@ -43,7 +43,7 @@ public class DestroyByContact : MonoBehaviour
         if (this.CompareTag("EnemyBoss"))
         {
             bossHealth = gameController.BossHit();
-            Debug.Log(bossHealth);
+           // Debug.Log(bossHealth);
             if (bossHealth < 0.0f)
             {
                 Destroy(gameObject);

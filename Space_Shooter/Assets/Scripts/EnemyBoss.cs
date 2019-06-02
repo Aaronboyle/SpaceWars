@@ -5,18 +5,17 @@ using UnityEngine.UI;
 
 public class EnemyBoss : MonoBehaviour
 {
-    public float bossHealth;
-    public float currentbossHealth;
+    public float bossMaxHealth = 100.0f;
+    public float bossCurrentHealth;
     public bool bossIsDead;
     public Slider bossHealthBar;
 
     // Start is called before the first frame update
     public void Start()
     {
-        bossHealth = 100.0f;
-        currentbossHealth = bossHealth;
+        bossCurrentHealth = bossMaxHealth;
         bossIsDead = false;
-        bossHealthBar.value = CalculateHealth();
+        bossHealthBar.value = bossCurrentHealth;
     }
 
 
@@ -25,26 +24,22 @@ public class EnemyBoss : MonoBehaviour
         get => bossIsDead;
     }
 
-    float CalculateHealth()
-    {
-        return currentbossHealth / bossHealth;
-    }
-
     public float TakeDamage()
     {
-        if (bossHealth <= 0.0f)
+        if (bossCurrentHealth <= 0.0f)
             bossIsDead = true;
 
-        bossHealth -= 10.0f;
-        bossHealthBar.value = CalculateHealth();
-        return bossHealth;
+        bossCurrentHealth -= 10.0f;
+        bossHealthBar.value = bossCurrentHealth;
+        Debug.Log(bossHealthBar.value); //Check for the health bar value
+        return bossCurrentHealth;
     }
 
     public void Reset()
     {
-        bossHealth = 100.0f;
+        bossCurrentHealth = bossMaxHealth;
         bossIsDead = false;
-        bossHealthBar.value = CalculateHealth();
+        bossHealthBar.value = bossCurrentHealth;
     }
 
     public void Explode()
