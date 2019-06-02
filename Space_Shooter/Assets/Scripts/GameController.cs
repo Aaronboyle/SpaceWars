@@ -32,6 +32,7 @@ public class GameController : MonoBehaviour
     private float playerHealth;
     public GameObject playerExplosion;
     public Slider healthBar;
+
     public GameObject GameOverMenu;
     public Boundary boundary;
 
@@ -47,7 +48,6 @@ public class GameController : MonoBehaviour
         player = playerObject.GetComponent<PlayerController>();
 
         enemyBoss = boss1.GetComponent<EnemyBoss>();
-
 
         score = 0;
         wave = 1;
